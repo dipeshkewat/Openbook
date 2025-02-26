@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semester 1 Subjects</title>
+    <style>
+        .subject-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            font-family: 'Poppins', sans-serif;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+
+        .subject-row {
+            border: none;
+            margin: 15px 0;
+            padding: 20px;
+            cursor: pointer;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .subject-row:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .subject-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .subject-name::before {
+            content: '📚';
+            font-size: 1.5rem;
+        }
+
+        .module-content {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+
+        .module-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+        }
+
+        .module-table th, .module-table td {
+            padding: 15px;
+            text-align: left;
+            border: none;
+        }
+
+        .module-table tr {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .module-table tr:hover {
+            transform: scale(1.01);
+        }
+
+        .module-table th {
+            background-color: #2c3e50;
+            color: white;
+            font-weight: 500;
+        }
+
+        .module-table th:first-child {
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        .module-table th:last-child {
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .resource-link {
+            color: #3498db;
+            text-decoration: none;
+            margin-right: 15px;
+            padding: 6px 12px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .resource-link:hover {
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+        }
+
+        .active {
+            background-color: #e3f2fd;
+            border-left: 4px solid #3498db;
+        }
+
+        /* Different colors for different resource types */
+        .resource-link.youtube {
+            color: #ff0000;
+        }
+
+        .resource-link.notes {
+            color: #27ae60;
+        }
+
+        .resource-link.questions {
+            color: #1184ff;
+        }
+
+        .resource-link.youtube:hover {
+            background: #ff0000;
+            color: white;
+        }
+
+        .resource-link.notes:hover {
+            background: #27ae60;
+            color: white;
+        }
+
+        .resource-link.questions:hover {
+            background: #1184ff;
+            color: white;
+        }
+
+        /* Add these media queries at the end of your style section */
+        @media screen and (max-width: 768px) {
+            .subject-container {
+                margin: 10px;
+                padding: 10px;
+            }
+
+            .subject-row {
+                padding: 15px;
+            }
+
+            .subject-name {
+                font-size: 1.1rem;
+            }
+
+            .module-table th, 
+            .module-table td {
+                padding: 10px;
+            }
+
+            /* Stack the resource links vertically on mobile */
+            .resource-link {
+                display: block;
+                margin: 5px 0;
+                text-align: left;
+                padding: 8px;
+            }
+
+            /* Adjust table layout for mobile */
+            .module-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            .module-table tr {
+                margin-bottom: 10px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .subject-name {
+                font-size: 1rem;
+            }
+
+            .module-table th, 
+            .module-table td {
+                padding: 8px;
+                font-size: 0.9rem;
+            }
+
+            .resource-link {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="subject-container">
+        <!-- Subject 1 -->
+        <div class="subject-row" onclick="toggleModules('subject1')">
+            <div class="subject-name">Mathematics I</div>
+            <div id="subject1" class="module-content">
+                <table class="module-table">
+                    <tr>
+                        <th>Module</th>
+                        <th>Resources</th>
+                    </tr>
+                    <tr>
+                        <td>Module 1: Calculus</td>
+                        <td>
+                            <a href="#" class="resource-link youtube">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                            <a href="#" class="resource-link notes">
+                                <i class="fas fa-book-open"></i> Notes
+                            </a>
+                            <a href="#" class="resource-link questions">
+                                <i class="fas fa-question-circle"></i> Questions
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Module 2: Differential Equations</td>
+                        <td>
+                            <a href="#" class="resource-link youtube">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                            <a href="#" class="resource-link notes">
+                                <i class="fas fa-book-open"></i> Notes
+                            </a>
+                            <a href="#" class="resource-link questions">
+                                <i class="fas fa-question-circle"></i> Questions
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Module 3: Linear Algebra</td>
+                        <td>
+                            <a href="#" class="resource-link youtube">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                            <a href="#" class="resource-link notes">
+                                <i class="fas fa-book-open"></i> Notes
+                            </a>
+                            <a href="#" class="resource-link questions">
+                                <i class="fas fa-question-circle"></i> Questions
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Module 4: Integration</td>
+                        <td>
+                            <a href="#" class="resource-link youtube">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                            <a href="#" class="resource-link notes">
+                                <i class="fas fa-book-open"></i> Notes
+                            </a>
+                            <a href="#" class="resource-link questions">
+                                <i class="fas fa-question-circle"></i> Questions
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Module 5: Series and Sequences</td>
+                        <td>
+                            <a href="#" class="resource-link youtube">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                            <a href="#" class="resource-link notes">
+                                <i class="fas fa-book-open"></i> Notes
+                            </a>
+                            <a href="#" class="resource-link questions">
+                                <i class="fas fa-question-circle"></i> Questions
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Module 6: Complex Numbers</td>
+                        <td>
+                            <a href="#" class="resource-link youtube">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                            <a href="#" class="resource-link notes">
+                                <i class="fas fa-book-open"></i> Notes
+                            </a>
+                            <a href="#" class="resource-link questions">
+                                <i class="fas fa-question-circle"></i> Questions
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Subject 2 -->
+        <div class="subject-row" onclick="toggleModules('subject2')">
+            <div class="subject-name">Physics</div>
+            <div id="subject2" class="module-content">
+                <table class="module-table">
+                    <tr>
+                        <th>Module</th>
+                        <th>Resources</th>
+                    </tr>
+                    <tr>
+                        <td>Module 1: Mechanics</td>
+                        <td>
+                            <a href="#" class="resource-link youtube">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                            <a href="#" class="resource-link notes">
+                                <i class="fas fa-book-open"></i> Notes
+                            </a>
+                            <a href="#" class="resource-link questions">
+                                <i class="fas fa-question-circle"></i> Questions
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Module 2: Waves and Oscillations</td>
+                        <td>
+                            <a href="#" class="resource-link youtube">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                            <a href="#" class="resource-link notes">
+                                <i class="fas fa-book-open"></i> Notes
+                            </a>
+                            <a href="#" class="resource-link questions">
+                                <i class="fas fa-question-circle"></i> Questions
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Module 3: Optics</td>
+                        <td>
+                            <a href="#" class="resource-link youtube">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                            <a href="#" class="resource-link notes">
+                                <i class="fas fa-book-open"></i> Notes
+                            </a>
+                            <a href="#" class="resource-link questions">
+                                <i class="fas fa-question-circle"></i> Questions
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Module 4: Electromagnetism</td>
+                        <td>
+                            <a href="#" class="resource-link youtube">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                            <a href="#" class="resource-link notes">
+                                <i class="fas fa-book-open"></i> Notes
+                            </a>
+                            <a href="#" class="resource-link questions">
+                                <i class="fas fa-question-circle"></i> Questions
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Module 5: Modern Physics</td>
+                        <td>
+                            <a href="#" class="resource-link youtube">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                            <a href="#" class="resource-link notes">
+                                <i class="fas fa-book-open"></i> Notes
+                            </a>
+                            <a href="#" class="resource-link questions">
+                                <i class="fas fa-question-circle"></i> Questions
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Module 6: Quantum Physics</td>
+                        <td>
+                            <a href="#" class="resource-link youtube">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                            <a href="#" class="resource-link notes">
+                                <i class="fas fa-book-open"></i> Notes
+                            </a>
+                            <a href="#" class="resource-link questions">
+                                <i class="fas fa-question-circle"></i> Questions
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Subject 3 -->
+        <div class="subject-row" onclick="toggleModules('subject3')">
+            <div class="subject-name">Chemistry</div>
+            <div id="subject3" class="module-content">
+                <table class="module-table">
+                    <tr>
+                        <th>Module</th>
+                        <th>Resources</th>
+                    </tr>
+                    <tr>
+                        <td>Module 1: Organic Chemistry</td>
+                        <td>
+                            <a href="#" class="resource-link youtube">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                            <a href="#" class="resource-link notes">
+                                <i class="fas fa-book-open"></i> Notes
+                            </a>
+                            <a href="#" class="resource-link questions">
+                                <i class="fas fa-question-circle"></i> Questions
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Add more modules similarly -->
+                </table>
+            </div>
+        </div>
+
+        <!-- Subject 4 -->
+        <div class="subject-row" onclick="toggleModules('subject4')">
+            <div class="subject-name">Programming Fundamentals</div>
+            <div id="subject4" class="module-content">
+                <table class="module-table">
+                    <tr>
+                        <th>Module</th>
+                        <th>Resources</th>
+                    </tr>
+                    <tr>
+                        <td>Module 1: Introduction to C</td>
+                        <td>
+                            <a href="#" class="resource-link youtube">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                            <a href="#" class="resource-link notes">
+                                <i class="fas fa-book-open"></i> Notes
+                            </a>
+                            <a href="#" class="resource-link questions">
+                                <i class="fas fa-question-circle"></i> Questions
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Add more modules similarly -->
+                </table>
+            </div>
+        </div>
+
+        <!-- Subject 5 -->
+        <div class="subject-row" onclick="toggleModules('subject5')">
+            <div class="subject-name">English</div>
+            <div id="subject5" class="module-content">
+                <table class="module-table">
+                    <tr>
+                        <th>Module</th>
+                        <th>Resources</th>
+                    </tr>
+                    <tr>
+                        <td>Module 1: Communication Skills</td>
+                        <td>
+                            <a href="#" class="resource-link youtube">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                            <a href="#" class="resource-link notes">
+                                <i class="fas fa-book-open"></i> Notes
+                            </a>
+                            <a href="#" class="resource-link questions">
+                                <i class="fas fa-question-circle"></i> Questions
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Add more modules similarly -->
+                </table>
+            </div>
+        </div>
+
+        <!-- Subject 6 -->
+        <div class="subject-row" onclick="toggleModules('subject6')">
+            <div class="subject-name">Engineering Graphics</div>
+            <div id="subject6" class="module-content">
+                <table class="module-table">
+                    <tr>
+                        <th>Module</th>
+                        <th>Resources</th>
+                    </tr>
+                    <tr>
+                        <td>Module 1: Basic Drawing</td>
+                        <td>
+                            <a href="#" class="resource-link youtube">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                            <a href="#" class="resource-link notes">
+                                <i class="fas fa-book-open"></i> Notes
+                            </a>
+                            <a href="#" class="resource-link questions">
+                                <i class="fas fa-question-circle"></i> Questions
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Add more modules similarly -->
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleModules(subjectId) {
+            const content = document.getElementById(subjectId);
+            const parentRow = content.parentElement;
+            
+            // Close all other open subjects
+            const allContents = document.getElementsByClassName('module-content');
+            const allRows = document.getElementsByClassName('subject-row');
+            
+            for (let item of allContents) {
+                if (item.id !== subjectId) {
+                    item.style.display = 'none';
+                }
+            }
+            
+            for (let row of allRows) {
+                row.classList.remove('active');
+            }
+
+            // Toggle current subject
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                parentRow.classList.remove('active');
+            } else {
+                content.style.display = 'block';
+                parentRow.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>

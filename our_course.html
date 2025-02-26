@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* Slider styles */
+.slider-container {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.slide {
+    min-width: 300px;
+    flex: 0 0 auto;
+}
+
+/* Navigation buttons */
+.slider-nav button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.slider-nav button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .slider-nav button {
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+}
+        section{
+            background-color: rgb(190, 207, 207);
+            border-radius: 20px;
+        }
+        .main{
+            text-align: center;
+            
+        }
+
+        .main h1{
+            font-size: 45px;
+            color: black;
+        }
+        .main p{
+            font-size: 25px;
+        }
+        .box4{
+            background-color: rgb(106, 106, 134);
+            width: 300px;
+            height: 500px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 15px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            
+        }
+        .box4 h2{
+            font-size: 50px;
+            color: white;
+            text-align: center;
+        }
+
+        .box4 p{
+            color: white;
+            font-size: 25px;
+        }
+        .box4 .p1{
+            font-size: 20px;
+        }
+        .main_box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+      
+        .box4:hover{
+            background-color: rgb(44, 102, 238);
+            transform: scale(1.1);
+
+        }
+
+        .box5:hover{
+            background-color: rgb(255, 145, 0);
+            transform: scale(1.1);
+
+        }
+
+        .box6:hover{
+            background-color: rgba(114, 69, 238, 0.705);
+            transform: scale(1.1);
+        }
+
+        .box7:hover{
+            background-color: rgba(118, 183, 113, 0.879);
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body>
+    <section>
+        <div class="main">
+            <h1>Our Courses</h1>
+            <p>these are the courses we offer,But right now we are offering only
+                 1 course -Computer Science Engineering</p>
+        </div>
+        <div class="main_box">
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide box4">
+                        <h2>Computer Engineering</h2>
+                        <p class="p1">This is the course we are offering right now</p>
+                        <p>In this course we will learn all about computer science and engineering.
+                           You will get comprehensive study materials like handwritten notes, video lectures
+                           and question papers.
+                        </p>            
+                    </div>
+
+                    <div class="slide box4 box5">
+                        <h2>Mechanical Engineering</h2>
+                        <p class="p1">These courses are not available right now, but we will add them soon</p>
+                        <p>In this course we will learn all about mechanical engineering.
+                           You will get comprehensive study materials like handwritten notes, video lectures
+                           and question papers.
+                        </p>            
+                    </div>
+
+                    <div class="slide box4 box6">
+                        <h2>Information Technology</h2>
+                        <p class="p1">These courses are not available right now, but we will add them soon</p>
+                        <p>In this course we will learn all about information technology.
+                           You will get comprehensive study materials like handwritten notes, video lectures
+                           and question papers.
+                        </p>            
+                    </div>
+
+                    <div class="slide box4 box7">
+                        <h2>AI &<br> ML</h2>
+                        <p class="p1">These courses are not available right now, but we will add them soon</p>
+                        <p>In this course we will learn all about AI and Machine Learning.
+                           You will get comprehensive study materials like handwritten notes, video lectures
+                           and question papers.
+                        </p>            
+                    </div>
+                </div>
+                
+                <div class="slider-nav">
+                    <button class="prev-btn">❮</button>
+                    <button class="next-btn">❯</button>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+</body>
+</html>

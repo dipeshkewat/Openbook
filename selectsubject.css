@@ -1,0 +1,192 @@
+.subject-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+.subject-row {
+    border: none;
+    margin: 15px 0;
+    padding: 20px;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.subject-row:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.subject-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.subject-name::before {
+    content: '📚';
+    font-size: 1.5rem;
+}
+
+.module-content {
+    display: none;
+    
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background: #f8f9fa;
+}
+
+.module-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+}
+
+.module-table th, .module-table td {
+    padding: 15px;
+    text-align: left;
+    border: none;
+}
+
+.module-table tr {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.module-table tr:hover {
+    transform: scale(1.01);
+}
+
+.module-table th {
+    background-color: #2c3e50;
+    color: white;
+    font-weight: 500;
+}
+
+.module-table th:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.module-table th:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.resource-link {
+    color: #3498db;
+    text-decoration: none;
+    margin-right: 15px;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.resource-link:hover {
+    background: #3498db;
+    color: white;
+    text-decoration: none;
+}
+
+.active {
+    background-color: #e3f2fd;
+    border-left: 4px solid #3498db;
+}
+
+/* Different colors for different resource types */
+.resource-link.youtube {
+    color: #ff0000;
+}
+
+.resource-link.notes {
+    color: #27ae60;
+}
+
+.resource-link.questions {
+    color: #1184ff;
+}
+
+.resource-link.youtube:hover {
+    background: #ff0000;
+    color: white;
+}
+
+.resource-link.notes:hover {
+    background: #27ae60;
+    color: white;
+}
+
+.resource-link.questions:hover {
+    background: #1184ff;
+    color: white;
+}
+
+/* Add these media queries at the end of your style section */
+@media screen and (max-width: 768px) {
+    .subject-container {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .subject-row {
+        padding: 15px;
+    }
+
+    .subject-name {
+        font-size: 1.1rem;
+    }
+
+    .module-table th, 
+    .module-table td {
+        padding: 10px;
+    }
+
+    /* Stack the resource links vertically on mobile */
+    .resource-link {
+        display: block;
+        margin: 5px 0;
+        text-align: left;
+        padding: 8px;
+    }
+
+    /* Adjust table layout for mobile */
+    .module-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .module-table tr {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .subject-name {
+        font-size: 1rem;
+    }
+
+    .module-table th, 
+    .module-table td {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .resource-link {
+        font-size: 0.85rem;
+    }
+}
