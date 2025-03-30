@@ -29,5 +29,18 @@ app.use('/api/v1/users' , userRouter);
 app.use('/api/v1/users', userRouter);
 // http://localhost:8000/api/v1/users/login
 
+import subjectRouter from "./routes/Subject.routes.js";
+
+app.use('/api/v1/subjects', subjectRouter);
+
+// http://localhost:8000/api/v1/subjects/subjects
+
+import chapterRouter from "./routes/chapters.routes.js";
+
+app.use('/api/v1/chapters', chapterRouter);
+
+// http://localhost:8000/api/v1/chapters/chapters
+
+
 
 export{ app }
