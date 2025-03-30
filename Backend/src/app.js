@@ -23,7 +23,6 @@ app.use(cookieParser())
 import userRouter  from "./routes/user.routes.js";
 
 app.use('/api/v1/users' , userRouter);
-
 // http://localhost:8000/api/v1/users/register
 
 app.use('/api/v1/users', userRouter);
@@ -32,15 +31,18 @@ app.use('/api/v1/users', userRouter);
 import subjectRouter from "./routes/Subject.routes.js";
 
 app.use('/api/v1/subjects', subjectRouter);
-
 // http://localhost:8000/api/v1/subjects/subjects
+
+app.use('/api/v1/subjects/getsubjects', subjectRouter);
+// http://localhost:8000/api/v1/subjects/getsubjects
 
 import chapterRouter from "./routes/chapters.routes.js";
 
 app.use('/api/v1/chapters', chapterRouter);
-
 // http://localhost:8000/api/v1/chapters/chapters
 
+app.use('/api/v1/chapters/getchapters', chapterRouter);
+// http://localhost:8000/api/v1/chapters/getchapters
 
 
 export{ app }

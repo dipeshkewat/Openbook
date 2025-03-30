@@ -41,8 +41,9 @@ const subjectAndSem = asyncHandler(async (req, res) => {
 
 const getSubject = asyncHandler(async (req, res) => {
     try {
-        const Sem= req.query.sem
-        const result = SubjectAndSem.find({ semester: Sem });
+        const sem= req.query.sem
+        console.log(sem)
+        const result = await SubjectAndSem.find({ semester: sem });
         if (!result) {
             return res.status(404).json({ message: "No data found" });
         }
