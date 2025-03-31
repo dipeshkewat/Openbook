@@ -40,8 +40,8 @@ const chapterList = asyncHandler(async (req, res) => {
 
 const getChapters = asyncHandler(async (req, res) => {
     try {
-        const Sem= req.query.sem
-        const result = chapterList.find({ semester: Sem });
+        const sem= req.query.sem
+        const result = await ChapterList.find({ semester: sem });
         if (!result) {
             return res.status(404).json({ message: "No data found" });
         }
